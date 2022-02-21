@@ -3,19 +3,22 @@
 # Intended for gcc/Linux, may need modifying for other platforms
 #
 
-ARCH=i386
-CC=gcc
+ARCH=x86_64
+# </* ndit-dev change 
+#CC=gcc
+CC=x86_64-w64-mingw32-gcc
+# */>
 BASE_CFLAGS=-Dstricmp=strcasecmp
 
 #use these cflags to optimize it
-CFLAGS=$(BASE_CFLAGS) -march=i486 -O6 -ffast-math -funroll-loops \
+CFLAGS=$(BASE_CFLAGS) -O6 -ffast-math -funroll-loops \
 	-fomit-frame-pointer -fexpensive-optimizations -falign-loops=2 \
 	-falign-jumps=2 -falign-functions=2
 #use these when debugging 
 #CFLAGS=$(BASE_CFLAGS) -g
 
 LDFLAGS=-ldl -lm
-SHLIBEXT=so
+SHLIBEXT=dll
 SHLIBCFLAGS=-fPIC
 SHLIBLDFLAGS=-shared
 

@@ -603,10 +603,17 @@ extern int              stopAP;
 
 extern  edict_t                 *g_edicts;
 
-#define FOFS(x) (int)&(((edict_t *)0)->x)
-#define STOFS(x) (int)&(((spawn_temp_t *)0)->x)
-#define LLOFS(x) (int)&(((level_locals_t *)0)->x)
-#define CLOFS(x) (int)&(((gclient_t *)0)->x)
+
+// </* ndit-dev edit 
+//#define FOFS(x) (int)&(((edict_t *)0)->x)
+//#define STOFS(x) (int)&(((spawn_temp_t *)0)->x)
+//#define LLOFS(x) (int)&(((level_locals_t *)0)->x)
+//#define CLOFS(x) (int)&(((gclient_t *)0)->x)
+#define FOFS(x) (int)(uintptr_t)&(((edict_t *)0)->x)
+#define STOFS(x) (int)(uintptr_t)&(((spawn_temp_t *)0)->x)
+#define LLOFS(x) (int)(uintptr_t)&(((level_locals_t *)0)->x)
+#define CLOFS(x) (int)(uintptr_t)&(((gclient_t *)0)->x)
+//  ndit-dev edit */>
 
 #define random()        ((rand () & 0x7fff) / ((float)0x7fff))
 #define crandom()       (2.0 * (random() - 0.5))

@@ -4,7 +4,10 @@
 #
 
 ARCH=x86_64
-CC=gcc
+# /* ndit-dev change 
+#CC=gcc
+CC=x86_64-w64-mingw32-gcc
+# */
 BASE_CFLAGS=-Dstricmp=strcasecmp
 
 #use these cflags to optimize it
@@ -15,7 +18,7 @@ CFLAGS=$(BASE_CFLAGS) -O6 -ffast-math -funroll-loops \
 #CFLAGS=$(BASE_CFLAGS) -g
 
 LDFLAGS=-ldl -lm
-SHLIBEXT=so
+SHLIBEXT=dll
 SHLIBCFLAGS=-fPIC
 SHLIBLDFLAGS=-shared
 
