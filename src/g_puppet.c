@@ -21,8 +21,6 @@
 #include "g_local.h"
 #include "m_player.h"
 
-int i;
-
 //updated
 char* NUMtoLOCWORD (int num)
 {
@@ -551,6 +549,7 @@ void Puppet_Think (edict_t *ent)
 
 	ent->s.modelindex = 255;
 	// update chase cam if being followed
+	int i;
 	for (i = 1; i <= maxclients->value; i++) {
 		other = g_edicts + i;
 		if (other->inuse)
@@ -793,6 +792,7 @@ void Pup_Think (edict_t *ent)
 
 	ent->s.modelindex = 255;
 	// update chase cam if being followed
+	int i;
 	for (i = 1; i <= maxclients->value; i++) {
 		other = g_edicts + i;
 		if (other->inuse)
